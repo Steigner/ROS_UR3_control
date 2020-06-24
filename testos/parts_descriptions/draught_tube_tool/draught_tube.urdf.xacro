@@ -1,0 +1,16 @@
+<?xml version="2.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="draught_tube" params="prefix">
+
+    <xacro:include filename="$(find testos)/parts_descriptions/draught_tube_tool/draught_tube.urdf"/> 
+	
+    <joint name="End_effector_draught_tube" type="fixed">
+      <origin xyz="-0.051 +0.002 0.006" rpy="${-pi} 0.0 0.0"/>
+      <parent link="tool0"/>
+      <child link="draught_tube"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
+

@@ -1,0 +1,1 @@
+{"episode_steps": 50, "alpha": 0.001, "total_episodes": 50, "memory_size": 2000, "state_size": 3, "epsilon_discount": 0.995, "epsilon_min": 0.01, "batch_size": 64, "learn_start": 64, "epsilon": 1.0, "gamma": 0.95, "action_size": 6}

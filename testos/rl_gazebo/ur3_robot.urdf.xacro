@@ -1,0 +1,34 @@
+<?xml version="2.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur3" >
+
+  <!-- launch the ros_controller for gazebo that publishes the hardware interfaces -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+  </gazebo>
+
+  <!-- include the ur3 -->
+  <xacro:include filename="$(find testos)/rl_gazebo/ur3.urdf.xacro" />
+  
+  <!-- include tool -->
+  <xacro:include filename="$(find testos)/parts_descriptions/draught_tube_tool/draught_tube.urdf.xacro" />
+
+  <!-- create the arm macro-->
+  <xacro:ur3_robot prefix="" joint_limited="true" />
+
+  <!-- create the tool macro-->
+  <xacro:draught_tube prefix=""/>
+
+  <!-- Create a world link and fix it all to that -->
+  <link name="world" />
+
+  <!-- fix the arm in the world -->
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+</robot>  
+
+    
